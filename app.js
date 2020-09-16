@@ -1,11 +1,26 @@
 const pakelis = {
     vnt: 20,
     parukyti() {
-        return this.vnt--;
+        if(this.vnt){
+            this.vnt--
+        }
+        return this.vnt;
     }
 };
+const body = document.querySelector('body');
+const buttonSmoke = document.createElement('button');
+buttonSmoke.innerText = pakelis.vnt;
 
-while(pakelis.vnt) {
-    console.log(pakelis.vnt);
-    pakelis.parukyti()
-}
+buttonSmoke.addEventListener('click', () => {
+    buttonSmoke.innerText = pakelis.parukyti();
+});
+
+body.append(buttonSmoke);
+
+// function getCancer(cigariukai) {
+//     while(cigariukai.vnt) {
+//         console.log(cigariukai.vnt);
+//         cigariukai.parukyti()
+//     }
+// }
+// getCancer(pakelis)
